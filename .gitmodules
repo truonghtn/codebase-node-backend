@@ -1,0 +1,6 @@
+[submodule "utils/redis-ts"]
+	path = utils/redis-ts
+	url = https://github.com/lesslucifer/redis-ts
+[submodule "utils/gql-ts"]
+	path = utils/gql-ts
+	url = git@github.com:lesslucifer/gql-ts.git
