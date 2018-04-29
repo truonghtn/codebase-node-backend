@@ -13,7 +13,7 @@ import { IUser } from '../models';
 const SystemKeys = [
     {
         apikey: 'Zsp1IB65ESYHnofBZYmqrHhyf6l61FCX',
-        system: 'VOICE_CLOUD'
+        system: 'APP_NAME'
     }
 ]
 
@@ -31,7 +31,7 @@ export class AuthServ {
             if (_.isEmpty(accessToken)) {
                 throw _.logicError(`Unauthorized`, 'Invalid access token', 403, ERR.UNAUTHORIZED);
             }
-            
+
             let authUser: IAuthUser = null;
             try {
                 authUser = this.jwtAuth.getUser(accessToken);
@@ -60,7 +60,7 @@ export class AuthServ {
             if (_.isEmpty(apiKey)) {
                 throw _.logicError(`Unauthorized`, 'APIKey not found', 403, ERR.UNAUTHORIZED);
             }
-            
+
             const system = SystemKeys.find(sk => sk.apikey = apiKey);
             if (!system) {
                 throw _.logicError(`Unauthorized`, 'Invalid APIKey', 403, ERR.UNAUTHORIZED);

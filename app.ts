@@ -14,10 +14,9 @@ import SessionServ from './serv/sess';
 // Import routers
 import LoginRoute from './routes/auth';
 
+// Import services
 import { AuthServ } from './serv/auth';
 import { UserServ } from './serv/user';
-import { JobManager } from './serv/job/job';
-import { ExpiringNameJob } from './serv/job/expiring_name_job';
 
 class Program {
     public static async main(): Promise<number> {
@@ -58,9 +57,6 @@ class Program {
         server.listen(ENV.HTTP_PORT, function () {
             console.log("Listen on port " + ENV.HTTP_PORT + " ...");
         });
-
-        JobManager.jobs.push(new ExpiringNameJob());
-        JobManager.start();
 
         return 0;
     }
